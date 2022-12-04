@@ -1,10 +1,23 @@
 
-import pandas as pd
+from tdots.tdot import Tdot
+from tdots.tdots import Tdots
 
-print("Hello world !")
+dts = Tdots()
 
+print(dts.all)
 
-a_df = pd.DataFrame([{"a":1, "b":2}])
-print(a_df)
+dts.create(Tdot(key="a", label="Alphonse"))
+dts.create(Tdot(key="b", label="Bertrand"))
+dts.create(Tdot(key="c", label="Charles"))
+print(dts.all)
+
+a = dts.read(key="a")
+print(a)
+
+dts.update(Tdot(key="a", label="Alexandre"))
+print(dts.all)
+
+dts.delete(key="a")
+print(dts.all)
 
 
